@@ -39,4 +39,4 @@ Decoding
   
 ## References
 1. [Secrets Hidden in Images (Steganography) - Computerphile](https://www.youtube.com/watch?v=TWEXCYQKyDc)
-2. [Image Steganography using Python)(https://towardsdatascience.com/hiding-data-in-an-image-image-steganography-using-python-e491b68b1372)
+2. [Image Steganography using Python](https://towardsdatascience.com/hiding-data-in-an-image-image-steganography-using-python-e491b68b1372)
