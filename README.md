@@ -37,3 +37,6 @@ Decoding
     Enter the name of the steganographed image that you want to decode (with extension) :cool_dog_v1.png
     Decoded message is top secret
   
+## References
+1. [Secrets Hidden in Images (Steganography) - Computerphile](https://www.youtube.com/watch?v=TWEXCYQKyDc)
+2. [Image Steganography using Python)(https://towardsdatascience.com/hiding-data-in-an-image-image-steganography-using-python-e491b68b1372)
