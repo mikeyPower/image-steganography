@@ -1,6 +1,8 @@
 import cv2
 import numpy as np
 
+# Public Variables
+delimeter = "####"
 
 def message_to_binary(message):
 	if type(message) == str:
@@ -18,7 +20,7 @@ def message_to_binary(message):
 
 def hide_data(image, secret_message):
 
-	# calculate the maximum bytes to encode by (lenght of column * number of rows * r,g,b (number of channels) divide by 8 to represent in bytes)
+	# calculate the size of image in bytes by (lenght of column * number of rows * r,g,b (number of channels) divide by 8 to represent in bytes)
 	n_bytes = image.shape[0] * image.shape[1] * 3 // 8
 	print("Maximum bytes to encode:", n_bytes)
 
@@ -27,7 +29,7 @@ def hide_data(image, secret_message):
 		raise ValueEror("Error encountered insufficient bytes, need bigger image or less data !!")
 
     # you can use any string as the delimeter
-	secret_message += "####"
+	secret_message += delimeter
 
 
 	data_index = 0
@@ -72,10 +74,14 @@ def hide_data(image, secret_message):
 def show_data(image):
 
 	binary_data = ""
-	for values in image:
-		for pixel in values:
+	for values in image: # loop through row
+		for pixel in values: # loop through column
+
 			# convert red, green and blue values into binary format
-			r, g, b = message_to_binary(pixel)
+			r = message_to_binary(pixel[0])
+			g = message_to_binary(pixel[1])
+			b = message_to_binary(pixel[2])
+
 			# extracting data from the least significant bit of red pixel
 			binary_data += r[-1]
 			# extracting data from the least significant bit of green pixel
@@ -86,16 +92,17 @@ def show_data(image):
 	# split by 8-bits
 	all_bytes = [ binary_data[i: i+8] for i in range(0, len(binary_data), 8)]
 
-	# convert from bits to characters
+	# convert from bits to characters (bytes)
 	decoded_data = ""
 	for byte in all_bytes:
 		decoded_data += chr(int(byte,2))
-		# check if we have reached the delimeter which is "#####"
-		if decoded_data[-5:] == "#####":
+		# check if we have reached the delimeter which is "####"
+
+		if decoded_data[len(decoded_data)-len(delimeter):] == delimeter:
 			break
 
 	# return everything except the delimeter
-	return decoded_data[:-5]
+	return decoded_data[:-len(delimeter)]
 
 def encode_text():
     image_name = input("Enter image name(with extension): ")
@@ -133,6 +140,7 @@ def Steganography():
     	if (userinput == 1):
       		print("\nEncoding....")
       		encode_text()
+      		print("Messaged Encoded")
 
     	elif (userinput == 2):
       		print("\nDecoding....")
