@@ -5,33 +5,35 @@ Current version supports text, bytes and integers will add audio and images late
 
 ## Prerequisite
 
-  $ ./install.sh
+    $ ./install.sh
   
 ## Run
 
-  $ python3 steganography.py
+    $ python3 steganography.py
   
 ## Output
 
 Encoding
-  Image Steganography 
-  1. Encode the data 
-  2. Decode the data 
-  Your input is: 1
-  Encoding....
-  Enter image name(with extension): cool_dog.png
-  The shape of the image is:  (512, 512, 3)
-  Enter data to be encoded : top secret
-  Enter the name of new encoded image(with extension): cool_dog_v1.png
-  Maximum bytes to encode: 98304
-  Messaged Encoded
+
+    Image Steganography 
+    1. Encode the data 
+    2. Decode the data 
+    Your input is: 1
+    Encoding....
+    Enter image name(with extension): cool_dog.png
+    The shape of the image is:  (512, 512, 3)
+    Enter data to be encoded : top secret
+    Enter the name of new encoded image(with extension): cool_dog_v1.png
+    Maximum bytes to encode: 98304
+    Messaged Encoded
   
 Decoding
-  Image Steganography 
-  1. Encode the data 
-  2. Decode the data 
-  Your input is: 2
-  Decoding....
-  Enter the name of the steganographed image that you want to decode (with extension) :cool_dog_v1.png
-  Decoded message is top secret
+
+    Image Steganography 
+    1. Encode the data 
+    2. Decode the data 
+    Your input is: 2
+    Decoding....
+    Enter the name of the steganographed image that you want to decode (with extension) :cool_dog_v1.png
+    Decoded message is top secret
   
